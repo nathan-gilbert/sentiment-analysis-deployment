@@ -71,18 +71,18 @@ def train(model, train_loader, epochs, optimizer, loss_fn, device):
         total_loss = 0
         for batch in train_loader:         
             batch_X, batch_y = batch
-            
             batch_X = batch_X.to(device)
             batch_y = batch_y.to(device)
             
+            # This post helped me understand some PyTorch conventions:
+            # https://stackoverflow.com/questions/48001598/why-do-we-need-to-call-zero-grad-in-pytorch
             optimizer.zero_grad()
             predicted_labels = model.forward(batch_X)
             loss = loss_fn(predicted_labels, batch_y)
             loss.backward()
-            
             optimizer.step()            
             total_loss = loss.data.item()
-        print("Epoch: {}, BCELoss: {}".format(epoch, total_loss / len(train_loader)))
+        print("Epoch #: {}, total_loss: {}".format(epoch, total_loss)))
 
 if __name__ == '__main__':
     # All of the model parameters and training parameters are sent as arguments when the script
