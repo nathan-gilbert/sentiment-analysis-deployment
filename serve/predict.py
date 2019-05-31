@@ -92,7 +92,7 @@ def predict_fn(input_data, model):
     with torch.no_grad():
         predictions = model.forward(data)
     orig_result = predictions.numpy()
-    print("Prerounded result: {}".format(orig_result))
+    #print("Prerounded result: {}".format(orig_result))
     result = np.round(orig_result)
-    print("Final Result: {}".format(result))
+    #print("Final Result: {}".format(result))
     return result
