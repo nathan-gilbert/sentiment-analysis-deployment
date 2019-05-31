@@ -82,7 +82,7 @@ def train(model, train_loader, epochs, optimizer, loss_fn, device):
             loss.backward()
             optimizer.step()            
             total_loss = loss.data.item()
-        print("Epoch #: {}, total_loss: {}".format(epoch, total_loss)))
+        print("Epoch #: {}, total_loss: {}".format(epoch, total_loss))
 
 if __name__ == '__main__':
     # All of the model parameters and training parameters are sent as arguments when the script
